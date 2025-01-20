@@ -7,6 +7,9 @@ body{
     background-color: rgba(0, 0, 0, 0.842);
     color: rgb(255, 255, 255);
     font-family: "Nunito";
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nunito-nunito {
@@ -47,6 +50,7 @@ body{
     border-radius: 20px;
     max-width: 400px;
     min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .row{
@@ -78,10 +82,11 @@ input{
 }
 
 
-.splash{
+button{
     background-color: white;
+    border: none;
     border-radius: 100%;
-    padding: 13px 13px 7px 13px;
+    padding: 17px 17px 13px 16px;
     margin: 15px 10px 15px 30px;
 }
 
@@ -91,4 +96,8 @@ input{
 
 #grad {
     background-image: linear-gradient(165deg, rgb(12, 228, 160), rgb(20, 206, 178), rgb(30, 154, 176), rgb(38, 9, 80));
+  }
+
+  .hide{
+    display: none;
   }

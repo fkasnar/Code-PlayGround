@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,35 +13,97 @@
 
     <section class="column app" class id="grad">
         <div class="row">
-            <div><input title="Search" placeholder="Search"></div>
-            <div class="splash"><img src="/Project - WheatherApp/img/search.png" width="20" height="20"></div>
+            <div class="search"><input type="text" title="Search" placeholder="Search" spellcheck="false"></div>
+            <div class="splash search"><button><img src="/Project - WheatherApp/img/search.png" width="20" height="20"></button></div>
         </div>
-        <div class="column">
-            <img src="/Project - WheatherApp/img/clear.png" width="150" height="150" class="space">
-            <h1>25°C</h1>
-            <h2>Grad Zagreb</h2>
+
+        <div class="error" style="display: none; color: white; text-align: center; margin-top: 10px;">
+            Hmm...Cant find one. Please try again.
         </div>
-        <div class="row">
-            <div class="row">
-                <div class="row">
-                    <img src="/Project - WheatherApp/img/humidity.png" height="25" width="30" class="space">
-                </div>
-                <div class="column">
-                    <h4><strong>53%</strong></h4>
-                    <h6>Humidity</h6>
-                </div>
+
+        <div class="hide">
+            <div class="column">
+                <img src="/Project - WheatherApp/img/clear.png" width="150" height="150" class="space weather-icon">
+                <h1 class="temp">25°C</h1>
+                <h2 class="city">Grad Zagreb</h2>
             </div>
             <div class="row">
                 <div class="row">
-                    <img src="/Project - WheatherApp/img/wind.png" height="30" width="30" class="space">
+                    <div class="row">
+                        <img src="/Project - WheatherApp/img/humidity.png" height="25" width="30" class="space">
+                    </div>
+                    <div class="column">
+                        <h4 class="humidity"><strong>53%</strong></h4>
+                        <h6>Humidity</h6>
+                    </div>
                 </div>
-                <div class="colum">
-                    <h4><strong>5.66 km/h</strong></h4>
-                    <h6>Wind Speed</h6>
+                <div class="row">
+                    <div class="row">
+                        <img src="/Project - WheatherApp/img/wind.png" height="30" width="30" class="space">
+                    </div>
+                    <div class="colum">
+                        <h4 class="wind"><strong>5.66 km/h</strong></h4>
+                        <h6>Wind Speed</h6>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
+
+    <script>
+
+        const apiKey = "5f842c9e8b2b4b74fe436f35908d08cd";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+            if(response.status == 404){
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
+            }else{
+                var data = await response.json();
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+            if(data.weather[0].main == "Clouds"){
+                weatherIcon.src = "img/clouds.png"
+            }
+            else if(data.weather[0].main == "Clear"){
+                weatherIcon.src = "img/clear.png"
+            }
+            else if(data.weather[0].main == "Rain"){
+                weatherIcon.src = "img/rain.png"
+            }
+            else if(data.weather[0].main == "Drizzle"){
+                weatherIcon.src = "img/drizzle.png"
+            }
+            else if(data.weather[0].main == "Mist"){
+                weatherIcon.src = "img/mist.png"
+            }
+            else if(data.weather[0].main == "Snow"){
+                weatherIcon.src = "img/snow.png"
+            }
+
+            document.querySelector(".hide").style.display = "block";
+            document.querySelector(".error").style.display = "none";
+            }
+        }
+
+        searchBtn.addEventListener("click", () => {
+            checkWeather(searchBox.value);
+        })
+        checkWeather();
+
+    </script>
 
     
 </body>
