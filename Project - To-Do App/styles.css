@@ -1,3 +1,5 @@
+  /* theme color: #fa6400 */
+
 *{
     margin: 0;
     padding: 0;
@@ -14,6 +16,8 @@
     font-family: "Poppins", "Nunito";
     background-color: rgba(0, 0, 0, 0.877);
     align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .container{
@@ -79,12 +83,60 @@
     height: 50px;
   }
 
-  .card{
+/*   .card{
     background-color: #ffb98a;
     margin-top: 15px;
     border-radius: 15px ;
     min-height: 30px;
     padding: 10px;
+  } */
+
+  ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 17px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  ul li:before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border: 50%;
+    background-image: url(img/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 15px;
+    left: 8px;
+  }
+
+  ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+  }
+
+  ul li.checked::before{
+    background-image: url(img/checked.png);
+  }
+
+  ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  ul li span:hover{
+    background: #fa6400;
   }
   
   .content{
@@ -94,17 +146,18 @@
     align-items:center
   }
 
-  p{
-    padding: 5px;
-    margin: 5px;
-    color: white;
-  }
-
   .space{
     padding: 5px;
     margin: 5px;
   }
-  /* // theme color: #fa6400 */
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    background-color: transparent !important;
+    color: black !important;
+  }
 
 
 

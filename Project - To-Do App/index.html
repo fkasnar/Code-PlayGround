@@ -18,18 +18,18 @@
             <div><h1>To-Do List</h1></div>
         </div>
         <div class="row splash">
-            <input placeholder="Add your text here" class="maininput">
-            <button class="btn">Add</button>
+            <input placeholder="Add your text here" class="maininput" id="input-box">
+            <button onclick="addTask()" class="btn">Add</button>
         </div>
         <div class="card">
-            <div class=" content">
-                <input type="checkbox">
-                <p>Make a To-Do Web Application</p>
-                <button class="btn-2"><img src="img/delete.svg" alt="todo icon" width="30" height="30"></button>
-            </div>
-        
+            <div class=" ">
+                <ul id="list-container">
 
+                </ul>
+            </div>
     </div>
+
+    <script src="script.js"></script>
     
 </body>
 </html>
