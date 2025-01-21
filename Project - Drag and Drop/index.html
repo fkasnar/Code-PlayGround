@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Drag and Drop</title>
+</head>
+<body>
+
+    <div class="container">
+        <div id="left">
+            <div class="list" draggable="true"><img src="img/icon.png" alt=""> List Item 1</div>
+            <div class="list" draggable="true"><img src="img/icon.png" alt=""> List Item 2</div>
+            <div class="list" draggable="true"><img src="img/icon.png" alt=""> List Item 3</div>
+            <div class="list" draggable="true"><img src="img/icon.png" alt=""> List Item 4</div>
+        </div>
+        <div id="right"></div>
+    </div>
+
+    <script>
+
+        let lists = document.getElementsByClassName("list");
+        let rightBox = document.getElementById("right");
+        let leftBox = document.getElementById("left");
+
+        for(list of lists){
+            list.addEventListener("dragstart", function(e){
+                let selected = e.target; // saving element which is being dragged in selected variable
+
+                rightBox.addEventListener("dragover", function(e){
+                    e.preventDefault(); // when we are dragging over second element
+                });
+                rightBox.addEventListener("drop", function(e){
+                    rightBox.appendChild(selected); // addding selected element to right div
+                    selected = null; // clead selected variable after dropping to be able to save another element to selected variable,
+                });
+                // -> here we are duplicating code but making it for drag n drop to a left side
+
+                leftBox.addEventListener("dragover", function(e){
+                    e.preventDefault(); // when we are dragging over second element
+                });
+                leftBox.addEventListener("drop", function(e){
+                    leftBox.appendChild(selected); // addding selected element to left div
+                    selected = null; // clead selected variable after dropping to be able to save another element to selected variable,
+                });
+            })
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
