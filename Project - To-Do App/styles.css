@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nunito-nunito {
+    font-family: "Nunito";
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  body{
+    font-family: "Poppins", "Nunito";
+    background-color: rgba(0, 0, 0, 0.877);
+    align-items: center;
+  }
+
+  .container{
+    background-color: white;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 500px;
+    min-width: 300px;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .maininput{
+    height: 25px;
+    width: 80%;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    padding: 0px 10px 0px 10px;
+    font-size: 17px;
+    background-color: rgb(191, 191, 191);
+    color: white;
+  }
+
+  textarea:focus, input:focus{
+    outline: none;
+}
+
+  .btn{
+    background-color: #fa6400;
+    border-radius: 50px;
+    width: 100px;
+    border: none;
+    color: white;
+    height: 50px;
+    font-family: "Poppins", "Nunito";
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .btn-2{
+    background-color: transparent;
+    border: none;
+    width: 10%;
+  }
+
+  .splash{
+    background-color: rgb(191, 191, 191);
+    border-radius: 50px;
+    height: 50px;
+  }
+
+  .card{
+    background-color: #ffb98a;
+    margin-top: 15px;
+    border-radius: 15px ;
+    min-height: 30px;
+    padding: 10px;
+  }
+  
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center
+  }
+
+  p{
+    padding: 5px;
+    margin: 5px;
+    color: white;
+  }
+
+  .space{
+    padding: 5px;
+    margin: 5px;
+  }
+  /* // theme color: #fa6400 */
+
+
+
