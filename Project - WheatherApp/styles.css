@@ -96,6 +96,7 @@ button{
 
 #grad {
     background-image: linear-gradient(165deg, rgb(12, 228, 160), rgb(20, 206, 178), rgb(30, 154, 176), rgb(38, 9, 80));
+    margin: 5px;
   }
 
   .hide{
