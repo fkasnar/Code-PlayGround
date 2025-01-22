@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Gallery</title>
+</head>
+<body>
+
+    <div class="gallery-wrap">
+        <img src="img/back.png" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="img/image-1.png"></span>
+                <span><img src="img/image-2.png"></span>
+                <span><img src="img/image-3.png"></span>
+            </div>
+            <div>
+                <span><img src="img/image-4.png"></span>
+                <span><img src="img/image-5.png"></span>
+                <span><img src="img/image-6.png"></span>
+            </div>
+        </div>
+        <img src="img/next.png" id="nextBtn">
+    </div>
+    
+
+    <script>
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+
+        scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.style.scrollBehavior = "smooth";
+        });
+
+        nextBtn.addEventListener("click", ()=> {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 600;
+        });
+
+        backBtn.addEventListener("click", ()=> {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 600;
+        });
+
+    </script>
+    
+</body>
+</html>
