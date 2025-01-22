@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Pop UP</title>
+</head>
+<body>
+
+    <div class="container">
+        <button type="submit" class="btn" onclick="openPopup()">Submit</button>
+        <div class="popup" id="popup">
+            <img src="img/404-tick.png">
+            <h2>Thank you!</h2>
+            <p>Your details has been successfully submitted. Thanks!</p>
+            <button type="button" onclick="closePopup()">Ok</button>
+        </div>
+    </div>
+
+    <script>
+
+        let popup = document.getElementById("popup");
+
+        function openPopup(){
+            popup.classList.add("open-popup");
+        };
+
+        function closePopup(){
+            popup.classList.remove("open-popup");
+        };
+
+
+    </script>
+    
+</body>
+</html>
